@@ -49,14 +49,6 @@ const Login: React.FC = () => {
             <Button type="submit" className="w-full">Sign In</Button>
           </form>
 
-          <div className="mt-6 pt-4 border-t">
-            <p className="text-xs text-muted-foreground mb-2">Demo Credentials:</p>
-            <div className="space-y-1 text-xs text-muted-foreground">
-              <p><span className="font-medium">Admin:</span> admin@gmail.com / admin123</p>
-              <p><span className="font-medium">Manager:</span> manager@gmail.com / manager123</p>
-              <p><span className="font-medium">Employee:</span> employee@gmail.com / employee123</p>
-            </div>
-          </div>
         </div>
       </div>
     </div>
