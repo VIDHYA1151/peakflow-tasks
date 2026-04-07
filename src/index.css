@@ -2,30 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
     --background: 210 20% 98%;
-    --foreground: 220 20% 10%;
+    --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 10%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 10%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 220 70% 50%;
+    --primary: 225 73% 57%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 20% 95%;
-    --secondary-foreground: 220 20% 25%;
+    --secondary: 214 32% 91%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 215 15% 92%;
-    --muted-foreground: 215 10% 45%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 220 70% 96%;
-    --accent-foreground: 220 70% 40%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
@@ -36,36 +36,35 @@
     --warning: 38 92% 50%;
     --warning-foreground: 0 0% 100%;
 
-    --info: 200 80% 50%;
+    --info: 217 91% 60%;
     --info-foreground: 0 0% 100%;
 
     --critical: 0 84% 60%;
     --critical-foreground: 0 0% 100%;
 
-    --border: 214 20% 90%;
-    --input: 214 20% 90%;
-    --ring: 220 70% 50%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 225 73% 57%;
 
-    --radius: 0.5rem;
+    --radius: 0.625rem;
 
-    --sidebar-bg: 220 25% 14%;
-    --sidebar-fg: 215 15% 75%;
-    --sidebar-active: 220 70% 50%;
+    --sidebar-bg: 222 47% 11%;
+    --sidebar-fg: 215 20% 65%;
+    --sidebar-active: 225 73% 57%;
     --sidebar-active-fg: 0 0% 100%;
-    --sidebar-hover: 220 20% 20%;
-    --sidebar-border: 220 20% 20%;
+    --sidebar-hover: 222 40% 16%;
+    --sidebar-border: 222 40% 18%;
     --sidebar-width: 260px;
 
     --header-height: 56px;
 
-    --sidebar-background: 220 25% 14%;
-    --sidebar-foreground: 215 15% 75%;
-    --sidebar-primary: 220 70% 50%;
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 215 20% 65%;
+    --sidebar-primary: 225 73% 57%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 20% 20%;
-    --sidebar-accent-foreground: 215 15% 85%;
-    --sidebar-border: 220 20% 20%;
-    --sidebar-ring: 220 70% 50%;
+    --sidebar-accent: 222 40% 16%;
+    --sidebar-accent-foreground: 215 20% 85%;
+    --sidebar-ring: 225 73% 57%;
   }
 }
 
@@ -83,37 +82,4 @@
   .dashboard-grid {
     @apply grid gap-4 md:gap-6;
   }
-  .stat-card {
-    @apply bg-card rounded-lg border p-5 shadow-sm transition-shadow hover:shadow-md;
-  }
-  .table-container {
-    @apply bg-card rounded-lg border shadow-sm overflow-hidden;
-  }
-  .page-header {
-    @apply mb-6;
-  }
-  .page-title {
-    @apply text-2xl font-semibold text-foreground;
-  }
-  .page-subtitle {
-    @apply text-sm text-muted-foreground mt-1;
-  }
-  .badge-low {
-    @apply bg-accent text-accent-foreground;
-  }
-  .badge-medium {
-    @apply bg-[hsl(38,92%,50%,0.12)] text-[hsl(38,80%,35%)];
-  }
-  .badge-high {
-    @apply bg-[hsl(25,95%,53%,0.12)] text-[hsl(25,80%,35%)];
-  }
-  .badge-critical {
-    @apply bg-[hsl(0,72%,51%,0.12)] text-[hsl(0,72%,40%)];
-  }
-  .status-todo { @apply bg-muted text-muted-foreground; }
-  .status-ideating { @apply bg-[hsl(280,60%,50%,0.12)] text-[hsl(280,60%,40%)]; }
-  .status-testing { @apply bg-[hsl(38,92%,50%,0.12)] text-[hsl(38,80%,35%)]; }
-  .status-review { @apply bg-[hsl(200,80%,50%,0.12)] text-[hsl(200,80%,35%)]; }
-  .status-concepting { @apply bg-[hsl(170,60%,45%,0.12)] text-[hsl(170,60%,30%)]; }
-  .status-launched { @apply bg-[hsl(142,72%,42%,0.12)] text-[hsl(142,72%,30%)]; }
 }

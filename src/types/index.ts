@@ -1,10 +1,12 @@
 export type UserRole = 'admin' | 'manager' | 'employee';
 
-export type TaskStatus = 'To Do' | 'Ideating' | 'Testing' | 'In Review' | 'Concepting' | 'Launched';
+export type ProjectStatus = 'Pending' | 'Ongoing' | 'Completed' | 'Escalated' | 'Overdue';
 
-export type TaskPriority = 'Low' | 'Medium' | 'High' | 'Critical';
+export type ProjectPriority = 'Low' | 'Medium' | 'High' | 'Critical';
 
-export type EscalationLevel = 0 | 1 | 2;
+export type EscalationStatus = 'Open' | 'In Review' | 'Resolved' | 'Closed';
+
+export type EscalationLevel = 0 | 1 | 2 | 3;
 
 export interface User {
   id: string;
@@ -12,27 +14,30 @@ export interface User {
   email: string;
   password: string;
   role: UserRole;
-  team: string;
+  department: string;
   createdAt: string;
+  status: 'Active' | 'Inactive';
 }
 
-export interface Task {
+export interface Project {
   id: string;
-  taskId: string;
-  summary: string;
-  status: TaskStatus;
-  assignee: string;
-  priority: TaskPriority;
-  dueDate: string;
+  projectId: string;
+  name: string;
+  description: string;
+  startDate: string;
+  deadline: string;
+  managerId: string;
+  teamMembers: string[];
+  priority: ProjectPriority;
+  progress: number;
+  status: ProjectStatus;
   createdBy: string;
-  teamName: string;
-  escalationLevel: EscalationLevel;
   createdAt: string;
   updatedAt: string;
-  comments: TaskComment[];
+  comments: ProjectComment[];
 }
 
-export interface TaskComment {
+export interface ProjectComment {
   id: string;
   userId: string;
   userName: string;
@@ -40,10 +45,35 @@ export interface TaskComment {
   createdAt: string;
 }
 
-export interface Team {
+export interface Escalation {
   id: string;
-  teamName: string;
-  manager: string;
-  members: string[];
+  projectId: string;
+  projectName: string;
+  reason: string;
+  level: EscalationLevel;
+  escalationDate: string;
+  escalatedBy: string;
+  escalatedTo: string;
+  status: EscalationStatus;
+  remarks: string;
+  resolvedAt?: string;
+}
+
+export interface Notification {
+  id: string;
+  userId: string;
+  title: string;
+  message: string;
+  type: 'info' | 'warning' | 'success' | 'error';
+  read: boolean;
+  createdAt: string;
+}
+
+export interface ActivityItem {
+  id: string;
+  action: string;
+  details: string;
+  userId: string;
+  userName: string;
   createdAt: string;
 }

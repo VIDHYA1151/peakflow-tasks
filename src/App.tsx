@@ -4,16 +4,20 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider } from "@/context/AuthContext";
-import { TaskProvider } from "@/context/TaskContext";
+import { ProjectProvider } from "@/context/ProjectContext";
+import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
 import AdminDashboard from "./pages/AdminDashboard";
-import TaskManagement from "./pages/TaskManagement";
-import TeamManagement from "./pages/TeamManagement";
-import UserManagement from "./pages/UserManagement";
-import EscalationMonitor from "./pages/EscalationMonitor";
-import Analytics from "./pages/Analytics";
 import ManagerDashboard from "./pages/ManagerDashboard";
 import EmployeeDashboard from "./pages/EmployeeDashboard";
+import ProjectsPage from "./pages/ProjectsPage";
+import EscalationsPage from "./pages/EscalationsPage";
+import UsersPage from "./pages/UsersPage";
+import ReportsPage from "./pages/ReportsPage";
+import ProfilePage from "./pages/ProfilePage";
+import SettingsPage from "./pages/SettingsPage";
+import DeadlinesPage from "./pages/DeadlinesPage";
+import TeamMembersPage from "./pages/TeamMembersPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,25 +28,38 @@ const App = () => (
       <Toaster />
       <Sonner />
       <AuthProvider>
-        <TaskProvider>
+        <ProjectProvider>
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Navigate to="/login" replace />} />
+              <Route path="/" element={<LandingPage />} />
               <Route path="/login" element={<Login />} />
+              {/* Admin */}
               <Route path="/admin" element={<AdminDashboard />} />
-              <Route path="/admin/tasks" element={<TaskManagement />} />
-              <Route path="/admin/teams" element={<TeamManagement />} />
-              <Route path="/admin/users" element={<UserManagement />} />
-              <Route path="/admin/escalation" element={<EscalationMonitor />} />
-              <Route path="/admin/analytics" element={<Analytics />} />
+              <Route path="/admin/projects" element={<ProjectsPage roleFilter="admin" />} />
+              <Route path="/admin/escalations" element={<EscalationsPage roleFilter="admin" />} />
+              <Route path="/admin/users" element={<UsersPage />} />
+              <Route path="/admin/reports" element={<ReportsPage roleFilter="admin" />} />
+              <Route path="/admin/profile" element={<ProfilePage />} />
+              <Route path="/admin/settings" element={<SettingsPage />} />
+              {/* Manager */}
               <Route path="/manager" element={<ManagerDashboard />} />
-              <Route path="/manager/tasks" element={<ManagerDashboard />} />
-              <Route path="/manager/escalation" element={<EscalationMonitor />} />
+              <Route path="/manager/projects" element={<ProjectsPage roleFilter="manager" />} />
+              <Route path="/manager/team" element={<TeamMembersPage />} />
+              <Route path="/manager/escalations" element={<EscalationsPage roleFilter="manager" />} />
+              <Route path="/manager/reports" element={<ReportsPage roleFilter="manager" />} />
+              <Route path="/manager/profile" element={<ProfilePage />} />
+              <Route path="/manager/settings" element={<SettingsPage />} />
+              {/* Employee */}
               <Route path="/employee" element={<EmployeeDashboard />} />
+              <Route path="/employee/projects" element={<ProjectsPage roleFilter="employee" />} />
+              <Route path="/employee/deadlines" element={<DeadlinesPage />} />
+              <Route path="/employee/escalations" element={<EscalationsPage roleFilter="employee" />} />
+              <Route path="/employee/profile" element={<ProfilePage />} />
+              <Route path="/employee/settings" element={<SettingsPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
-        </TaskProvider>
+        </ProjectProvider>
       </AuthProvider>
     </TooltipProvider>
   </QueryClientProvider>
